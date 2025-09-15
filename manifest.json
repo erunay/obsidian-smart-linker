@@ -3,7 +3,7 @@
   "name": "Smart Linker",
   "version": "0.2.8",
   "minAppVersion": "1.4.0",
-  "description": "Find semantically related notes and insert [[smart links]] with one click. Adds a 'Smart Link' section to the current note. Uses a reliable built-in icon.",
+  "description": "Find semantically related notes and insert [[smart links]] with one click.",
   "author": "Erunay",
   "authorUrl": "https://github.com/erunay",
   "isDesktopOnly": false
