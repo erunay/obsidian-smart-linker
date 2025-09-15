@@ -1,0 +1,11 @@
+
+.smart-linker-container { padding: 8px; }
+.smart-linker-header { display:flex; align-items:center; justify-content: space-between; }
+.smart-linker-header h3 { margin:0; font-size:16px; }
+.smart-linker-toolbar button { margin-left:6px; }
+.smart-linker-item { display:flex; align-items:flex-start; justify-content: space-between; border-bottom:1px solid var(--background-modifier-border); padding:8px 0; }
+.smart-linker-left { max-width:70%; }
+.smart-linker-title { font-weight:600; }
+.smart-linker-path { opacity:0.7; font-size:12px; }
+.smart-linker-score { font-size:12px; margin-top:4px; }
+.smart-linker-right button { margin-left:6px; }
