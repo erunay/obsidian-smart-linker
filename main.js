@@ -142,7 +142,7 @@ module.exports = class SmartLinkerPlugin extends Plugin {
   async buildIndex(files) {
     const dfs = new Map(); const docs = [];
     for (const file of files) {
-      const content = await this.app.vault.read(file);
+      const content = await this.app.vault.cachedRead(file);
       if ((content?.length||0) < this.settings.minNoteLength) continue;
       const toks = extractTokens(file, content); const tf = tfWeighted(toks);
       docs.push({ file, tf }); const seen = new Set(tf.keys()); for (const t of seen) dfs.set(t, (dfs.get(t)||0)+1);
@@ -152,7 +152,7 @@ module.exports = class SmartLinkerPlugin extends Plugin {
   }
   async findSimilar(activeFile) {
     const files = this.app.vault.getMarkdownFiles(); const { docs, idf } = await this.buildIndex(files);
-    const activeContent = await this.app.vault.read(activeFile); const activeTF = tfWeighted(extractTokens(activeFile, activeContent));
+    const activeContent = await this.app.vault.cachedRead(activeFile); const activeTF = tfWeighted(extractTokens(activeFile, activeContent));
     const res = []; for (const d of docs) {
       if (d.file.path === activeFile.path) continue;
       let overlap = 0; for (const t of activeTF.keys()) if (d.tf.has(t)) overlap++;
@@ -167,7 +167,7 @@ module.exports = class SmartLinkerPlugin extends Plugin {
       const activeFile = this.app.workspace.getActiveFile();
       if (!activeFile) { new Notice("No active Markdown note."); return; }
       const linkText = `[[${targetFile.basename}]]`;
-      let content = await this.app.vault.read(activeFile);
+      let content = await this.app.vault.cachedRead(activeFile);
       const header = "\n---\n## Smart Link\nAdded by Smart Linker:\n";
       if (!content.includes("## Smart Link")) {
         content = (content.endsWith("\n") ? content : content + "\n") + header;
