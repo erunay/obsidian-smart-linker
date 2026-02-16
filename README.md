@@ -1,25 +1,19 @@
 # Smart Linker
 
-Smart Linker is an Obsidian plugin that finds semantically related notes and inserts [[smart links]] with one click.  
-It helps you build a connected knowledge graph by suggesting and linking related notes directly in your vault.
+An Obsidian plugin that helps you find similar notes within your vault.
 
-## ✨ Features
-- Side panel with suggested related notes
-- Similarity algorithm that prioritizes:
-  - Note titles
-  - #tags
-  - [[wikilinks]]
-- One-click insert: add a `## Smart Link` section at the bottom of the current note
-- Option to "Link all" suggested notes
-- Configurable settings:
-  - Similarity threshold
-  - Minimum overlap
-  - Maximum results
-  - Minimum note length
+**Note: Only Turkish and English are currently (fully) supported.**
 
-## 📥 Installation
-1. Download the latest release from the [Releases page](https://github.com/YOUR_USERNAME/obsidian-smart-linker/releases).
-2. Extract the folder to:
+## Features
+- Finds similar notes based on content similarity.
+- Displays a list of similar notes with a similarity score.
+- Operates entirely locally within your vault.
 
-## Contact
-- erunay@gmail.com
+## Usage
+1. Open a note.
+2. Run the command "Smart Linker: Benzer notları bul" (Find similar notes).
+3. A notification will display the most similar notes found.
+
+## Installation
+1. Install via BRAT or manually copy `main.js`, `manifest.json`, and `styles.css` to your `.obsidian/plugins/smart-linker` folder.
+2. Enable the plugin in Obsidian settings.
